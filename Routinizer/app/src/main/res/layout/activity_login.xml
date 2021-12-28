@@ -81,18 +81,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_pw" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Routinizer"
-            android:textSize="50sp"
-            android:textColor="@color/main"
-            android:fontFamily="@font/p_bbold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
