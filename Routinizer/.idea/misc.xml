@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/drawable/ic_btn_detail.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_btn_fire.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_btn_home.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_btn_play.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_btn_post.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_btn_user.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/drawable/tv_in_design.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/drawable/tv_tag_design.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/font/noto_p.xml" value="0.2574074074074074" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.226534141587933" />
+        <entry key="app/src/main/res/layout/item_post_recycler.xml" value="0.29326726417938775" />
+        <entry key="app/src/main/res/menu/bottom_navi_menu.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>
