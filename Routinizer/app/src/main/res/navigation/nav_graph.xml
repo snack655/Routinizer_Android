@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_home">
 
+    <fragment
+        android:id="@+id/main_home"
+        android:name="kr.co.override.routinizer.view.fragment.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/main_play"
+        android:name="kr.co.override.routinizer.view.fragment.PlayFragment"
+        android:label="PlayFragment" />
+    <fragment
+        android:id="@+id/main_post"
+        android:name="kr.co.override.routinizer.view.fragment.PostFragment"
+        android:label="PostFragment" />
+    <fragment
+        android:id="@+id/main_rank"
+        android:name="kr.co.override.routinizer.view.fragment.RankFragment"
+        android:label="RankFragment" />
+    <fragment
+        android:id="@+id/main_profile"
+        android:name="kr.co.override.routinizer.view.fragment.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>
