@@ -20,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
-            android:layout_marginTop="50dp"
             android:background="@drawable/btn_design"
             android:backgroundTint="@color/main"
-            android:text="다음"
             android:fontFamily="@font/p_bold"
+            android:onClick="@{() -> vm.onClickProfile()}"
+            android:text="다음"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:onClick="@{() -> vm.onClickProfile()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_nickname" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_school" />
 
         <TextView
             android:id="@+id/textView5"
@@ -50,9 +51,24 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="30dp"
+            android:onClick="@{() -> vm.onClickImage()}"
             android:src="@drawable/default_user"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/p_bold"
+            android:text="확인하기"
+            android:onClick="@{() -> vm.onClickConfirm()}"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="75dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/profile_Image_1"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <EditText
@@ -60,13 +76,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="45dp"
             android:layout_marginEnd="30dp"
             android:hint="닉네임"
+            android:text="@={vm.name}"
             android:fontFamily="@font/p_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_Image_1" />
+
+        <EditText
+            android:id="@+id/profile_school"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/p_regular"
+            android:hint="학교명"
+            android:text="@={vm.school}"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_nickname" />
 
         <ImageView
             android:id="@+id/imageView2"

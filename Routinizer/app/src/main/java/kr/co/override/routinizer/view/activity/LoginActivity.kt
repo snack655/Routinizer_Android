@@ -1,9 +1,11 @@
 package kr.co.override.routinizer.view.activity
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
@@ -14,19 +16,41 @@ class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     lateinit var loginViewModel: LoginViewModel
 
+    companion object {
+        const val TOKEN_PREFERENCE = "TOKEN_PREFERENCES"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         performDataBinding()
         
         with(loginViewModel) {
+            val autoPref = getSharedPreferences(TOKEN_PREFERENCE, Activity.MODE_PRIVATE)
+            id.value = autoPref.getString("id", null)
+            password.value = autoPref.getString("password", null)
+            if (id.value != null && password.value != null) {
+                onClickLogin()
+            }
+
             onLoginEvent.observe(this@LoginActivity, {
-                val id : String = findViewById<EditText>(R.id.login_id).text.toString()
-                val pw : String = findViewById<EditText>(R.id.login_pw).text.toString()
-                //if(아이디와 비밀번호가 서버의 데이터와 일치 할 때)
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 finishAffinity()
                 startActivity(intent)
-                //else 토스트 메시지 띄움
+            })
+
+            message.observe(this@LoginActivity, {
+                Toast.makeText(this@LoginActivity, "${message.value}", Toast.LENGTH_SHORT).show()
+            })
+
+            token.observe(this@LoginActivity, {
+                val sharedPref = applicationContext.getSharedPreferences(TOKEN_PREFERENCE, Context.MODE_PRIVATE)
+
+                with(sharedPref.edit()) {
+                    putString("id", id.value)
+                    putString("password", password.value)
+                    putString("token", it)
+                    apply()
+                }
             })
 
             onBackEvent.observe(this@LoginActivity, {
