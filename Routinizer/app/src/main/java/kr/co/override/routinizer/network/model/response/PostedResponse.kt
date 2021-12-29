@@ -32,3 +32,18 @@ data class participation(
     val id : String
 )
 
+data class PostingResponse(
+    val status : Int
+)
+
+data class DetailResponse(
+    val id : String,
+    val title : String,
+    val image : String,
+    val category : String,
+    val benefit : String,
+    val participationCount : Int,
+    val continuous : Int
+)
+
+

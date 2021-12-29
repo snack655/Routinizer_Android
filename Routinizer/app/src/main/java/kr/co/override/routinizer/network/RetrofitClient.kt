@@ -9,12 +9,11 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient{
 
-    private const val BASE_URL = "http://192.168.52.67:4000/api/v1/"
+    private const val BASE_URL = "http://192.168.177.67:4000/api/v1/"
 
     //val loginInterface: Login
     val signInterface : Sign
@@ -38,7 +37,6 @@ object RetrofitClient{
         .build()
 
     init {
-        //settingInterface = instance.create(Setting::class.java)
         signInterface = instance.create(Sign::class.java)
         imageInterface = instance.create(Image::class.java)
         postedInterface = instance.create(Posted::class.java)

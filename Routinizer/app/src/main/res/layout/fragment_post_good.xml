@@ -43,9 +43,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_back" />
 
 
-
-
-
         <Button
             android:id="@+id/btn_good_next"
             android:layout_width="match_parent"
@@ -71,6 +68,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/et_design"
+            android:text="@={vm.benefit}"
             android:hint="예) 폐활량을 증가시킬 수 있어요."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
