@@ -17,4 +17,7 @@ interface Posted {
 
     @GET("auth/ranking")
     fun getAllRanking() : Call<RankingResponse>
+
+    @GET("auth/ranking/grade")
+    fun getGradeRanking() : Call<RankingResponse>
 }

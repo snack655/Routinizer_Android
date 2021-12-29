@@ -1,5 +1,6 @@
 package kr.co.override.routinizer.view.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -36,9 +37,25 @@ class RankFragment : Fragment() {
 
         with(rankViewModel) {
             getAllRanking()
+
             allRankingList.observe(this@RankFragment.viewLifecycleOwner, {
                 rankRecyclerAdapter.rankList = it
                 rankRecyclerAdapter.notifyDataSetChanged()
+            })
+
+            gradeRankingList.observe(this@RankFragment.viewLifecycleOwner, {
+                rankRecyclerAdapter.rankList = it
+                rankRecyclerAdapter.notifyDataSetChanged()
+            })
+
+            status.observe(this@RankFragment.viewLifecycleOwner, {
+                if (status.value == 0) {
+                    binding.tvAllRanking.setTextColor(Color.parseColor("#000000"))
+                    binding.tvGradeRanking.setTextColor(Color.parseColor("#A6A6A6"))
+                } else if (status.value == 1) {
+                    binding.tvGradeRanking.setTextColor(Color.parseColor("#000000"))
+                    binding.tvAllRanking.setTextColor(Color.parseColor("#A6A6A6"))
+                }
             })
         }
         return binding.root
