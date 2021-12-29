@@ -8,11 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemChallengeRecyclerBinding
-import kr.co.override.routinizer.databinding.ItemPostRecyclerBinding
-import kr.co.override.routinizer.databinding.ItemRankRecyclerBinding
 import kr.co.override.routinizer.network.dapi.challenge
-import kr.co.override.routinizer.network.dapi.post
-import kr.co.override.routinizer.network.dapi.rank
 
 class MyChallengeRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     RecyclerView.Adapter<MyChallengeRecyclerAdapter.ChallengeViewHolder>() {

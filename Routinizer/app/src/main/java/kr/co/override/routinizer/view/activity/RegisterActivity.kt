@@ -38,7 +38,6 @@ class RegisterActivity : AppCompatActivity() {
             onLoginEvent.observe(this@RegisterActivity, {
                 val intent = Intent(this@RegisterActivity,LoginActivity::class.java)
                 startActivity(intent)
-                finish()
             })
         }
     }

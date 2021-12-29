@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemRankRecyclerBinding
-import kr.co.override.routinizer.network.dapi.rank
+import kr.co.override.routinizer.network.model.response.user
 
 class RankRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     RecyclerView.Adapter<RankRecyclerAdapter.RankViewHolder>() {
 
-    var rankList: List<rank> = ArrayList<rank>()
+    var rankList: List<user> = ArrayList<user>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -30,20 +30,23 @@ class RankRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     }
 
     override fun onBindViewHolder(holder: RankViewHolder, position: Int) {
-        holder.bind(rankList[position])
+        holder.bind(rankList[position], position)
     }
 
     override fun getItemCount(): Int = rankList.size
 
     class RankViewHolder(private val binding: ItemRankRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(rrank: rank){
-                with(rrank) {
-                    binding.tvRank.text = Rank.toString()
-                    binding.tvRankName.text = nickname
+            fun bind(user: user, idx : Int){
+                with(user) {
+                    binding.tvRank.text = idx.toString()
+                    binding.tvRankName.text = name
                     binding.tvRankSchool.text = school
+
+                    var reAvatar: String = "http://192.168.52.67:4000/uploads/${avatar}"
+
                     Glide.with(binding.root)
-                        .load(img)
+                        .load(reAvatar)
                         .error(R.drawable.default_user)
                         .centerCrop()
                         .into(binding.ivProfileRank)
