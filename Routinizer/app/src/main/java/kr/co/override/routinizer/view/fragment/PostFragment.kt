@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentPostBinding
-import kr.co.override.routinizer.network.dapi.challenge
 import kr.co.override.routinizer.view.adapter.MyChallengeRecyclerAdapter
 import kr.co.override.routinizer.viewmodel.fragment.PostViewModel
 
@@ -28,10 +28,22 @@ class PostFragment : Fragment() {
             container,
             false
         )
-        initRecycler()
         performViewModel()
 
+        val myChallengeRecyclerAdapter = MyChallengeRecyclerAdapter(viewLifecycleOwner)
+        binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
+
         with(postViewModel) {
+            getMyPosts()
+
+            message.observe(this@PostFragment.viewLifecycleOwner, {
+                Toast.makeText(context, "${message.value}", Toast.LENGTH_SHORT).show()
+            })
+
+            myPostsList.observe(this@PostFragment.viewLifecycleOwner, {
+                myChallengeRecyclerAdapter.challengeList = it
+                myChallengeRecyclerAdapter.notifyDataSetChanged()
+            })
             onNextEvent.observe(this@PostFragment, {
                 findNavController().navigate(kr.co.override.routinizer.R.id.action_main_post_to_postTagFragment)
             })
@@ -46,27 +58,5 @@ class PostFragment : Fragment() {
         binding.vm = postViewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
-    }
-
-    private fun initRecycler() {
-        var challengeList = ArrayList<challenge>()
-        val myChallengeRecyclerAdapter = MyChallengeRecyclerAdapter(viewLifecycleOwner)
-        binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
-
-        challengeList.apply {
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
-        }
-
-        myChallengeRecyclerAdapter.challengeList = challengeList
-        myChallengeRecyclerAdapter.notifyDataSetChanged()
     }
 }

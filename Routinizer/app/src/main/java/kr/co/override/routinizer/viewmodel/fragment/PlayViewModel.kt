@@ -28,7 +28,7 @@ class PlayViewModel: ViewModel() {
 
                 } else {
                     val errorBody = RetrofitClient.instance.responseBodyConverter<ErrorResponse>(
-                        ErrorResponse::class.java, ErrorResponse::class.java.annotations).convert(response.errorBody())
+                    ErrorResponse::class.java, ErrorResponse::class.java.annotations).convert(response.errorBody())
                     message.value = errorBody?.message
                     Log.d("Retrofit2", "onResponse: ${response.code()}")
                 }

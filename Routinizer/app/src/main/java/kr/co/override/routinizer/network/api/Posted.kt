@@ -24,4 +24,7 @@ interface Posted {
 
     @GET("participation/")
     fun getMyInvitedPost() : Call<InvitedResponse>
+
+    @GET("participation/")
+    fun getMyPost() : Call<InvitedResponse>
 }

@@ -9,14 +9,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
-import kr.co.override.routinizer.databinding.FragmentHomeBinding
 import kr.co.override.routinizer.databinding.FragmentPlayBinding
-import kr.co.override.routinizer.databinding.FragmentPostBinding
-import kr.co.override.routinizer.network.dapi.challenge
 import kr.co.override.routinizer.view.adapter.MyChallengeRecyclerAdapter
-import kr.co.override.routinizer.viewmodel.fragment.HomeViewModel
 import kr.co.override.routinizer.viewmodel.fragment.PlayViewModel
-import kr.co.override.routinizer.viewmodel.fragment.PostViewModel
 
 class PlayFragment : Fragment() {
     private lateinit var binding: FragmentPlayBinding

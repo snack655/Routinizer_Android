@@ -39,7 +39,6 @@ class MyChallengeRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(participation: participation){
                 with(participation) {
-                    binding.tvCount.text = dateCount.toString()
                     binding.tvSentence.text = title
                     binding.btnCheck.text = "인증하기"
 
