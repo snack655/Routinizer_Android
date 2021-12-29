@@ -9,6 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentPostBinding
+import kr.co.override.routinizer.network.dapi.challenge
+import kr.co.override.routinizer.view.adapter.MyChallengeRecyclerAdapter
 import kr.co.override.routinizer.viewmodel.fragment.PostViewModel
 
 class PostFragment : Fragment() {
@@ -25,7 +27,7 @@ class PostFragment : Fragment() {
             container,
             false
         )
-
+        initRecycler()
 
         performViewModel()
         return binding.root
@@ -37,5 +39,27 @@ class PostFragment : Fragment() {
         binding.vm = postViewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
+    }
+
+    private fun initRecycler() {
+        var challengeList = ArrayList<challenge>()
+        val myChallengeRecyclerAdapter = MyChallengeRecyclerAdapter(viewLifecycleOwner)
+        binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
+
+        challengeList.apply {
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+            add(challenge("", "100", "매일 3번 이 닦기", "확인하기"))
+        }
+
+        myChallengeRecyclerAdapter.challengeList = challengeList
+        myChallengeRecyclerAdapter.notifyDataSetChanged()
     }
 }
