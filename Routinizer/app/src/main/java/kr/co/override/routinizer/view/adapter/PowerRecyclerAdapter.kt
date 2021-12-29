@@ -10,16 +10,16 @@ import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemPostRecyclerBinding
 import kr.co.override.routinizer.network.dapi.post
 
-class PostRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
-    RecyclerView.Adapter<PostRecyclerAdapter.PostViewHolder>() {
+class PowerRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
+    RecyclerView.Adapter<PowerRecyclerAdapter.PowerViewHolder>() {
 
     var postList: List<post> = ArrayList<post>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PostViewHolder {
-        return PostViewHolder(
+    ): PowerViewHolder {
+        return PowerViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
                 R.layout.item_post_recycler,
@@ -29,13 +29,13 @@ class PostRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
         )
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PowerViewHolder, position: Int) {
         holder.bind(postList[position])
     }
 
     override fun getItemCount(): Int = postList.size
 
-    class PostViewHolder(private val binding: ItemPostRecyclerBinding) :
+    class PowerViewHolder(private val binding: ItemPostRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(ppost: post){
                 with(ppost) {
