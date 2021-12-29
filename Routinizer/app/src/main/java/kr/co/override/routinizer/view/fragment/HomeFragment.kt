@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentHomeBinding
-import kr.co.override.routinizer.network.dapi.post
 import kr.co.override.routinizer.view.adapter.HotRecyclerAdapter
 import kr.co.override.routinizer.view.adapter.NewRecyclerAdapter
 import kr.co.override.routinizer.view.adapter.PowerRecyclerAdapter

@@ -20,4 +20,7 @@ interface Posted {
 
     @GET("auth/ranking/grade")
     fun getGradeRanking() : Call<RankingResponse>
+
+    @GET("participation/")
+    fun getMyInvitedPost() : Call<>
 }

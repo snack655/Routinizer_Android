@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemPostRecyclerBinding
-import kr.co.override.routinizer.network.dapi.post
 import kr.co.override.routinizer.network.model.response.challenge
 
 class NewRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :

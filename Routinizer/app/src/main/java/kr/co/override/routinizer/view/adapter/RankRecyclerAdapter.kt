@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemRankRecyclerBinding
-import kr.co.override.routinizer.network.dapi.rank
 import kr.co.override.routinizer.network.model.response.user
 
 class RankRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :

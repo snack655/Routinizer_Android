@@ -21,3 +21,12 @@ data class user(
     val avatar : String,
     val school : String
 )
+
+data class InvitedResponse(
+    val participations : List<participation>
+)
+
+data class participation(
+
+)
+

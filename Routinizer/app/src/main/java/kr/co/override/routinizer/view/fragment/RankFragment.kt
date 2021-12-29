@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentRankBinding
-import kr.co.override.routinizer.network.dapi.rank
 import kr.co.override.routinizer.view.adapter.RankRecyclerAdapter
 import kr.co.override.routinizer.viewmodel.fragment.RankViewModel
 
