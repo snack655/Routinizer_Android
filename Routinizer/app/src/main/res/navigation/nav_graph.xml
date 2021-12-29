@@ -8,11 +8,23 @@
     <fragment
         android:id="@+id/main_home"
         android:name="kr.co.override.routinizer.view.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_main_home_to_main_play"
+            app:destination="@id/main_play"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
     <fragment
         android:id="@+id/main_play"
         android:name="kr.co.override.routinizer.view.fragment.PlayFragment"
-        android:label="PlayFragment" />
+        android:label="PlayFragment" >
+        <action
+            android:id="@+id/action_main_play_to_main_home"
+            app:destination="@id/main_home"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/main_post"
         android:name="kr.co.override.routinizer.view.fragment.PostFragment"
@@ -20,6 +32,10 @@
         <action
             android:id="@+id/action_main_post_to_postTagFragment"
             app:destination="@id/postTagFragment"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_main_post_to_main_play"
+            app:destination="@id/main_play"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
@@ -41,5 +57,63 @@
             app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_postTagFragment_to_postTitleFragment"
+            app:destination="@id/postTitleFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/postTitleFragment"
+        android:name="kr.co.override.routinizer.view.fragment.PostTitleFragment"
+        android:label="PostTitleFragment" >
+        <action
+            android:id="@+id/action_postTitleFragment_to_postTagFragment"
+            app:destination="@id/postTagFragment"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_postTitleFragment_to_postImgFragment"
+            app:destination="@id/postImgFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/postImgFragment"
+        android:name="kr.co.override.routinizer.view.fragment.PostImgFragment"
+        android:label="PostImgFragment" >
+        <action
+            android:id="@+id/action_postImgFragment_to_postTitleFragment"
+            app:destination="@id/postTitleFragment"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_postImgFragment_to_postGoodFragment"
+            app:destination="@id/postGoodFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/postGoodFragment"
+        android:name="kr.co.override.routinizer.view.fragment.PostGoodFragment"
+        android:label="PostGoodFragment" >
+        <action
+            android:id="@+id/action_postGoodFragment_to_postImgFragment"
+            app:destination="@id/postImgFragment"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_postGoodFragment_to_main_post"
+            app:destination="@id/main_post"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/playInfoFragment"
+        android:name="kr.co.override.routinizer.view.fragment.PlayInfoFragment"
+        android:label="PlayInfoFragment" >
+        <action
+            android:id="@+id/action_playInfoFragment_to_main_play"
+            app:destination="@id/main_play"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>
