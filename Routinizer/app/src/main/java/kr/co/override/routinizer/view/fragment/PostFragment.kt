@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentPostBinding
 import kr.co.override.routinizer.network.dapi.challenge
@@ -28,8 +29,12 @@ class PostFragment : Fragment() {
             false
         )
         initRecycler()
-
         performViewModel()
+
+        with(postViewModel) {
+
+        }
+
         return binding.root
     }
 
