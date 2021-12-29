@@ -16,12 +16,8 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentPostImgBinding
-import kr.co.override.routinizer.databinding.FragmentPostTagBinding
-import kr.co.override.routinizer.databinding.FragmentPostTitleBinding
-import kr.co.override.routinizer.viewmodel.fragment.HomeViewModel
 import kr.co.override.routinizer.viewmodel.fragment.PostImgViewModel
-import kr.co.override.routinizer.viewmodel.fragment.PostTagViewModel
-import kr.co.override.routinizer.viewmodel.fragment.PostTitleViewModel
+
 import java.io.File
 
 class PostImgFragment : Fragment() {
