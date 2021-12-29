@@ -9,11 +9,12 @@ import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemPostRecyclerBinding
 import kr.co.override.routinizer.network.dapi.post
+import kr.co.override.routinizer.network.model.response.challenge
 
 class NewRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     RecyclerView.Adapter<NewRecyclerAdapter.HotViewHolder>() {
 
-    var postList: List<post> = ArrayList<post>()
+    var postList: List<challenge> = ArrayList<challenge>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,13 +38,16 @@ class NewRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
 
     class HotViewHolder(private val binding: ItemPostRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(ppost: post){
-                with(ppost) {
-                    binding.tvCount.text = count.toString()
-                    binding.tvTag.text = tag
+            fun bind(challenge: challenge){
+                with(challenge) {
+                    binding.tvCount.text = participantCount.toString()
+                    binding.tvTag.text = category
                     binding.tvTitle.text = title
+
+                    var reImage: String = "http://192.168.52.67:4000/uploads/${image}"
+
                     Glide.with(binding.root)
-                        .load(img)
+                        .load(reImage)
                         .error(R.drawable.noimg)
                         .centerCrop()
                         .into(binding.ivPost)
