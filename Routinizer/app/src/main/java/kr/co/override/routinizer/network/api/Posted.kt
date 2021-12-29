@@ -1,9 +1,12 @@
 package kr.co.override.routinizer.network.api
 
+import kr.co.override.routinizer.network.model.request.PostingRequest
 import kr.co.override.routinizer.network.model.response.InvitedResponse
 import kr.co.override.routinizer.network.model.response.PostedResponse
+import kr.co.override.routinizer.network.model.response.PostingResponse
 import kr.co.override.routinizer.network.model.response.RankingResponse
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
 
 interface Posted {
@@ -27,4 +30,7 @@ interface Posted {
 
     @GET("participation/")
     fun getMyPost() : Call<InvitedResponse>
+
+    @GET("challenge/")
+    fun posting(@Body postingRequest: PostingRequest) : Call<PostingResponse>
 }

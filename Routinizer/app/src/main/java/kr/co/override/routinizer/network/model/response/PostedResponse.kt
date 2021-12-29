@@ -32,3 +32,8 @@ data class participation(
     val id : String
 )
 
+data class PostingResponse(
+    val status : Int
+)
+
+

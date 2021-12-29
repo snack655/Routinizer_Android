@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -34,9 +35,15 @@ class PostTitleFragment : Fragment() {
 
         with(postTitleViewModel) {
             onNextEvent.observe(this@PostTitleFragment, {
-                findNavController().navigate(R.id.action_postTitleFragment_to_postImgFragment)
+                if (titleV.value?.length == 0) {
+                    Toast.makeText(context, "제목을 입력해주세요", Toast.LENGTH_SHORT).show()
+                } else {
+                    PostGoodFragment.titleB = titleV.value.toString()
+                    findNavController().navigate(R.id.action_postTitleFragment_to_postImgFragment)
+                }
             })
             onBackEvent.observe(this@PostTitleFragment, {
+                PostGoodFragment.categoryB = ""
                 findNavController().navigate(R.id.action_postTitleFragment_to_postTagFragment)
             })
         }

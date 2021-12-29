@@ -21,6 +21,13 @@ import androidx.fragment.app.FragmentManager
 
 
 class PostGoodFragment : Fragment() {
+
+    companion object {
+        var titleB = ""
+        var categoryB = ""
+        var imageB = ""
+    }
+
     private lateinit var binding: FragmentPostGoodBinding
     lateinit var postGoodViewModel: PostGoodViewModel
 
@@ -38,14 +45,21 @@ class PostGoodFragment : Fragment() {
         performViewModel()
 
         with(postGoodViewModel) {
+
+            onInstanceEvent.observe(this@PostGoodFragment, {
+                title.value = titleB
+                category.value = categoryB
+                image.value = imageB
+            })
+
             onNextEvent.observe(this@PostGoodFragment, {
-
-
                 findNavController().navigate(R.id.action_postGoodFragment_to_main_post)
             })
             onBackEvent.observe(this@PostGoodFragment, {
                 findNavController().navigate(R.id.action_postGoodFragment_to_postImgFragment)
             })
+
+
         }
         return binding.root
     }
