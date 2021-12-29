@@ -27,6 +27,9 @@ data class InvitedResponse(
 )
 
 data class participation(
-
+    val title : String,
+    val image : String,
+    val id : String,
+    val dateCount : Int
 )
 

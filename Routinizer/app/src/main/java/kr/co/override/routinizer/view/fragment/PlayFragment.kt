@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kr.co.override.routinizer.R
@@ -31,9 +32,23 @@ class PlayFragment : Fragment() {
             container,
             false
         )
-        initRecycler()
-
         performViewModel()
+
+        val myChallengeRecyclerAdapter = MyChallengeRecyclerAdapter(viewLifecycleOwner)
+        binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
+
+        with(playViewModel) {
+            getMyInvitedPosts()
+
+            message.observe(this@PlayFragment.viewLifecycleOwner, {
+                Toast.makeText(context, "${message.value}", Toast.LENGTH_SHORT).show()
+            })
+
+            myInvitedPostsList.observe(this@PlayFragment.viewLifecycleOwner, {
+                myChallengeRecyclerAdapter.challengeList = it
+                myChallengeRecyclerAdapter.notifyDataSetChanged()
+            })
+        }
         return binding.root
     }
 
@@ -43,27 +58,5 @@ class PlayFragment : Fragment() {
         binding.vm = playViewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
-    }
-
-    private fun initRecycler() {
-        var challengeList = ArrayList<challenge>()
-        val myChallengeRecyclerAdapter = MyChallengeRecyclerAdapter(viewLifecycleOwner)
-        binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
-
-        challengeList.apply {
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-            add(challenge("", "10일 연속", "매일 3번 이 닦기", "인증하기"))
-        }
-
-        myChallengeRecyclerAdapter.challengeList = challengeList
-        myChallengeRecyclerAdapter.notifyDataSetChanged()
     }
 }

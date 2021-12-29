@@ -1,5 +1,6 @@
 package kr.co.override.routinizer.network.api
 
+import kr.co.override.routinizer.network.model.response.InvitedResponse
 import kr.co.override.routinizer.network.model.response.PostedResponse
 import kr.co.override.routinizer.network.model.response.RankingResponse
 import retrofit2.Call
@@ -22,5 +23,5 @@ interface Posted {
     fun getGradeRanking() : Call<RankingResponse>
 
     @GET("participation/")
-    fun getMyInvitedPost() : Call<>
+    fun getMyInvitedPost() : Call<InvitedResponse>
 }
