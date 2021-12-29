@@ -27,9 +27,16 @@ class ProfileFragment : Fragment() {
             container,
             false
         )
-
-
         performViewModel()
+
+        with(profileViewModel){
+            getMyProfile()
+            onSuccessEvent.observe(this@ProfileFragment, {
+                binding.tvName.text = name.value
+            })
+        }
+
+
         return binding.root
     }
 

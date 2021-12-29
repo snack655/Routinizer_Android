@@ -49,8 +49,7 @@
     <fragment
         android:id="@+id/postTagFragment"
         android:name="kr.co.override.routinizer.view.fragment.PostTagFragment"
-        android:label="fragment_post_tag"
-        tools:layout="@layout/fragment_post_tag" >
+        android:label="fragment_post_tag">
         <action
             android:id="@+id/action_postTagFragment_to_main_post"
             app:destination="@id/main_post"
@@ -105,7 +104,9 @@
         <action
             android:id="@+id/action_postGoodFragment_to_main_post"
             app:destination="@id/main_post"
-            app:enterAnim="@android:anim/fade_in" />
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/playInfoFragment"

@@ -3,6 +3,7 @@ package kr.co.override.routinizer.network
 import com.google.gson.GsonBuilder
 import kr.co.override.routinizer.network.api.Image
 import kr.co.override.routinizer.network.api.Posted
+import kr.co.override.routinizer.network.api.Profile
 import kr.co.override.routinizer.network.api.Sign
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,6 +19,7 @@ object RetrofitClient{
     val signInterface : Sign
     val imageInterface : Image
     val postedInterface : Posted
+    val getProfileInterface : Profile
 
     private val gson = GsonBuilder().setLenient().create()
     private val intercepter = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -38,5 +40,6 @@ object RetrofitClient{
         signInterface = instance.create(Sign::class.java)
         imageInterface = instance.create(Image::class.java)
         postedInterface = instance.create(Posted::class.java)
+        getProfileInterface = instance.create(Profile::class.java)
     }
 }
