@@ -92,7 +92,7 @@
             android:backgroundTint="#b2b2b2"
             android:fontFamily="@font/p_bold"
             android:text="로그인"
-            android:onClick="@{() -> vm.toClickLogin()}"
+            android:onClick="@{() -> vm.onClickLogin()}"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.505"

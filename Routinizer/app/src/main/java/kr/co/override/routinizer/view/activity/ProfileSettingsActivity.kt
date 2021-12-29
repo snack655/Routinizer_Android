@@ -3,6 +3,7 @@ package kr.co.override.routinizer.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -18,9 +19,15 @@ class ProfileSettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         performDataBinding()
 
+        val intent = intent
+        val idResult = intent.getStringExtra("id")
+        val pwResult = intent.getStringExtra("pw")
+
         with(profileViewModel) {
+            id.value = idResult
+            pw.value = pwResult
+
             onProfileEvent.observe(this@ProfileSettingsActivity, {
-                val nickname : String = findViewById<EditText>(R.id.profile_nickname).text.toString()
                 //닉네임을 서버에 넘겨줌
                 val intent = Intent(this@ProfileSettingsActivity, LoginActivity::class.java)
                 finishAffinity()
