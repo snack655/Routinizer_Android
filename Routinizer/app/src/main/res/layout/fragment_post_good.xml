@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="kr.co.override.routinizer.viewmodel.fragment.PostTagViewModel" />
+            type="kr.co.override.routinizer.viewmodel.fragment.PostGoodViewModel" />
 
     </data>
 
@@ -31,67 +31,20 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
             android:fontFamily="@font/p_bbold"
-            android:text="어떤 주제와 관련이 있나요?"
+            android:text="이 챌린지의 장점"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_back" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-            <RadioButton
-                android:id="@+id/radio_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="규칙" />
 
-            <RadioButton
-                android:id="@+id/radio_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="운동" />
 
-            <RadioButton
-                android:id="@+id/radio_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="취미" />
-
-            <RadioButton
-                android:id="@+id/radio_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="식습관" />
-
-            <RadioButton
-                android:id="@+id/radio_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="친환경" />
-
-            <RadioButton
-                android:id="@+id/radio_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="마음가짐" />
-
-            <RadioButton
-                android:id="@+id/radio_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="기타" />
-        </RadioGroup>
 
         <Button
             android:id="@+id/btn_good_next"
@@ -101,14 +54,28 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
             android:text="다음"
+            android:onClick="@{() -> vm.onClickNext()}"
             android:backgroundTint="@color/main"
             android:textColor="@color/black"
             android:fontFamily="@font/p_bbold"
             android:textSize="18sp"
-            android:onClick="@{() -> vm.onClickNext()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/et_good"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/et_design"
+            android:hint="예) 폐활량을 증가시킬 수 있어요."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            android:gravity="start"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
