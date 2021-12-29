@@ -11,3 +11,13 @@ data class challenge(
     val category: String,
     val participantCount: Int
 )
+
+data class RankingResponse(
+    val users : List<user>
+)
+
+data class user(
+    val name : String,
+    val avatar : String,
+    val school : String
+)

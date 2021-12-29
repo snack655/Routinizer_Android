@@ -36,7 +36,7 @@
             android:layout_marginStart="30dp"
             android:fontFamily="@font/p_bbold"
             android:text="등급별랭킹"
-            android:textColor="#000000"
+            android:textColor="#50000000"
             android:textSize="25sp"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6" />
