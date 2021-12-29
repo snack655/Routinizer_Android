@@ -17,7 +17,7 @@ class PostViewModel: ViewModel() {
     val myPostsList = MutableLiveData<List<participation>>()
 
     fun getMyPosts(){
-        val myPostCall = RetrofitClient.postedInterface.getMyInvitedPost()
+        val myPostCall = RetrofitClient.postedInterface.getMyPost()
 
         myPostCall.enqueue(object : retrofit2.Callback<InvitedResponse> {
             override fun onResponse(
