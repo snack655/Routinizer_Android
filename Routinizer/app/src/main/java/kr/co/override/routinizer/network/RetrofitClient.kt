@@ -1,19 +1,22 @@
 package kr.co.override.routinizer.network
 
 import com.google.gson.GsonBuilder
+import kr.co.override.routinizer.network.api.Image
 import kr.co.override.routinizer.network.api.Sign
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient{
 
-    private const val BASE_URL = "http://172.16.7.222:4000/api/v1/"
+    private const val BASE_URL = "http://192.168.52.67:4000/api/v1/"
 
     //val loginInterface: Login
     val signInterface : Sign
+    val imageInterface : Image
 
     private val gson = GsonBuilder().setLenient().create()
     private val intercepter = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -33,5 +36,6 @@ object RetrofitClient{
     init {
         //settingInterface = instance.create(Setting::class.java)
         signInterface = instance.create(Sign::class.java)
+        imageInterface = instance.create(Image::class.java)
     }
 }
