@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/main_home">
 
@@ -15,7 +16,12 @@
     <fragment
         android:id="@+id/main_post"
         android:name="kr.co.override.routinizer.view.fragment.PostFragment"
-        android:label="PostFragment" />
+        android:label="PostFragment" >
+        <action
+            android:id="@+id/action_main_post_to_postTagFragment"
+            app:destination="@id/postTagFragment"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
     <fragment
         android:id="@+id/main_rank"
         android:name="kr.co.override.routinizer.view.fragment.RankFragment"
@@ -24,4 +30,16 @@
         android:id="@+id/main_profile"
         android:name="kr.co.override.routinizer.view.fragment.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/postTagFragment"
+        android:name="kr.co.override.routinizer.view.fragment.PostTagFragment"
+        android:label="fragment_post_tag"
+        tools:layout="@layout/fragment_post_tag" >
+        <action
+            android:id="@+id/action_postTagFragment_to_main_post"
+            app:destination="@id/main_post"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
