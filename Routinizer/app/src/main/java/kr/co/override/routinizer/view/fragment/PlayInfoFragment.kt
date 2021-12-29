@@ -14,6 +14,7 @@ import kr.co.override.routinizer.databinding.FragmentPostTagBinding
 import kr.co.override.routinizer.databinding.FragmentPostTitleBinding
 import android.R.string.no
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
 import kr.co.override.routinizer.databinding.FragmentPlayInfoBinding
 import kr.co.override.routinizer.viewmodel.fragment.*
 
@@ -41,6 +42,21 @@ class PlayInfoFragment : Fragment() {
             })
             onBackEvent.observe(this@PlayInfoFragment, {
                 findNavController().navigate(R.id.action_postGoodFragment_to_postImgFragment)
+            })
+            onSuccessEvent.observe(this@PlayInfoFragment, {
+                binding.tvInfoTag.text = category.value
+                binding.tvInfoContinue.text = continuous.value.toString()
+                binding.tvInfoPlaying.text = participationCount.value.toString()
+                binding.tvInfo.text = title.value
+                binding.tvInfoInfo.text = benefit.value
+
+                var reImage: String = "http://192.168.52.67:4000/uploads/${image}"
+
+                Glide.with(binding.root)
+                    .load(reImage)
+                    .error(R.drawable.noimg)
+                    .centerCrop()
+                    .into(binding.ivInfoImg)
             })
         }
         return binding.root
