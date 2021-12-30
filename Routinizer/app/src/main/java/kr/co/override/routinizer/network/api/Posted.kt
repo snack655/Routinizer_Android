@@ -5,6 +5,7 @@ import kr.co.override.routinizer.network.model.response.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface Posted {
@@ -26,10 +27,10 @@ interface Posted {
     @GET("participate/")
     fun getMyInvitedPost() : Call<InvitedResponse>
 
-    @GET("participation/")
+    @GET("challenge/my")
     fun getMyPost() : Call<InvitedResponse>
 
-    @GET("challenge/")
+    @POST("challenge/")
     fun posting(@Body postingRequest: PostingRequest) : Call<PostingResponse>
 
     @GET("challenge/{id}")

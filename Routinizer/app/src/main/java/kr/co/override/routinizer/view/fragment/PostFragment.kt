@@ -34,7 +34,7 @@ class PostFragment : Fragment() {
         binding.rcMychallenge.adapter = myChallengeRecyclerAdapter
 
         with(postViewModel) {
-            getMyPosts()
+            //getMyPosts()
 
             message.observe(this@PostFragment.viewLifecycleOwner, {
                 Toast.makeText(context, "${message.value}", Toast.LENGTH_SHORT).show()

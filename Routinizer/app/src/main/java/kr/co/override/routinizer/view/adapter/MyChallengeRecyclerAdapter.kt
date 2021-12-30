@@ -42,7 +42,7 @@ class MyChallengeRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
                     binding.tvSentence.text = title
                     binding.btnCheck.text = "인증하기"
 
-                    var reImage: String = "http://192.168.52.67:4000/uploads/${image}"
+                    var reImage: String = "http://192.168.177.67:4000/uploads/${image}"
 
                     Glide.with(binding.root)
                         .load(reImage)

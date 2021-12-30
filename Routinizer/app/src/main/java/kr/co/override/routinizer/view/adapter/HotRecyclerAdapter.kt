@@ -43,7 +43,7 @@ class HotRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
                     binding.tvTag.text = category
                     binding.tvTitle.text = title
 
-                    var reImage: String = "http://192.168.52.67:4000/uploads/${image}"
+                    var reImage: String = "http://192.168.177.67:4000/uploads/${image}"
 
                     Glide.with(binding.root)
                         .load(reImage)

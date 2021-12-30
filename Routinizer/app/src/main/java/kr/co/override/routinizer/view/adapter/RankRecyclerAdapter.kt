@@ -39,11 +39,11 @@ class RankRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(user: user, idx : Int){
                 with(user) {
-                    binding.tvRank.text = idx.toString()
+                    binding.tvRank.text = (idx+1).toString()
                     binding.tvRankName.text = name
                     binding.tvRankSchool.text = school
 
-                    var reAvatar: String = "http://192.168.52.67:4000/uploads/${avatar}"
+                    var reAvatar: String = "http://192.168.177.67:4000/uploads/${avatar}"
 
                     Glide.with(binding.root)
                         .load(reAvatar)
