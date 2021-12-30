@@ -23,6 +23,7 @@
             android:backgroundTint="@color/main"
             android:fontFamily="@font/p_bbold"
             android:text="참가하기"
+            android:onClick="@{() -> vm.onClickNext()}"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/back"
+                        android:onClick="@{() -> vm.onClickBack()}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>

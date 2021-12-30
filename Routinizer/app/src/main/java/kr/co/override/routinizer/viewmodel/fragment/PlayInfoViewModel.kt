@@ -43,7 +43,7 @@ class PlayInfoViewModel: ViewModel() {
                 response: Response<DetailResponse>
             ) {
                 if (response.isSuccessful) {
-                    onSuccessEvent.call()
+
 
                     val result = response.body()
                     title.value = result?.title
@@ -52,6 +52,9 @@ class PlayInfoViewModel: ViewModel() {
                     benefit.value = result?.benefit
                     participationCount.value = result?.participationCount
                     continuous.value = result?.continuous
+
+                    onSuccessEvent.call()
+                    Log.d("TestTest", "onResponse: ${result?.title}")
                     Log.d("Retrofit2", "onResponse: 성공 Detail")
                 } else {
                     val errorBody = RetrofitClient.instance.responseBodyConverter<ErrorResponse>(

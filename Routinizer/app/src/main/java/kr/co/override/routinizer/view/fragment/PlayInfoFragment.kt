@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
 import android.R.string.no
+import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -19,7 +20,7 @@ import kr.co.override.routinizer.viewmodel.fragment.*
 
 class PlayInfoFragment : Fragment() {
     private lateinit var binding: FragmentPlayInfoBinding
-    lateinit var PlayInfoViewModel: PlayInfoViewModel
+    lateinit var playInfoViewModel: PlayInfoViewModel
     val id: PlayInfoFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -35,7 +36,7 @@ class PlayInfoFragment : Fragment() {
 
         performViewModel()
 
-        with(PlayInfoViewModel) {
+        with(playInfoViewModel) {
             val _id = id.postId
             getDetailPost(_id)
 
@@ -43,7 +44,7 @@ class PlayInfoFragment : Fragment() {
                 findNavController().navigate(R.id.action_postGoodFragment_to_main_post)
             })
             onBackEvent.observe(this@PlayInfoFragment, {
-                findNavController().navigate(R.id.action_postGoodFragment_to_postImgFragment)
+                findNavController().navigate(R.id.action_playInfoFragment_to_main_play)
             })
             onSuccessEvent.observe(this@PlayInfoFragment, {
                 binding.tvInfoTag.text = category.value
@@ -52,7 +53,9 @@ class PlayInfoFragment : Fragment() {
                 binding.tvInfo.text = title.value
                 binding.tvInfoInfo.text = benefit.value
 
-                var reImage: String = "http://192.168.52.67:4000/uploads/${image}"
+                Log.d("TestTest", "onCreateView: ${category.value.toString()}")
+
+                var reImage: String = "http://192.168.177.67:4000/uploads/${image}"
 
                 Glide.with(binding.root)
                     .load(reImage)
@@ -65,9 +68,9 @@ class PlayInfoFragment : Fragment() {
     }
 
     private fun performViewModel() {
-        PlayInfoViewModel = ViewModelProvider(this).get(PlayInfoViewModel::class.java)
-        PlayInfoViewModel = PlayInfoViewModel()
-        binding.vm = PlayInfoViewModel
+        playInfoViewModel = ViewModelProvider(this).get(PlayInfoViewModel::class.java)
+        playInfoViewModel = PlayInfoViewModel()
+        binding.vm = playInfoViewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
     }

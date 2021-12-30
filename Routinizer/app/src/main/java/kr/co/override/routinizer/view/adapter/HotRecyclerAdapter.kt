@@ -57,6 +57,10 @@ class HotRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
                         .centerCrop()
                         .into(binding.ivPost)
                 }
+
+                viewModel.onPostEvent.observe(lifecycleOwner, {
+                    onHotPostClick.value = challenge.id
+                })
             }
 
         }
