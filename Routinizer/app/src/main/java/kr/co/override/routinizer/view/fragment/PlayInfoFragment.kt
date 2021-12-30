@@ -39,6 +39,7 @@ class PlayInfoFragment : Fragment() {
         with(playInfoViewModel) {
             val _id = id.postId
             getDetailPost(_id)
+            __id.value = _id
 
             onNextEvent.observe(this@PlayInfoFragment, {
                 findNavController().navigate(R.id.action_postGoodFragment_to_main_post)

@@ -35,4 +35,7 @@ interface Posted {
 
     @GET("challenge/{id}")
     fun detailPost(@Path("id") id: String): Call<DetailResponse>
+
+    @POST("participate/{id}")
+    fun invite(@Path("id") id : String) : Call<PostingResponse>
 }

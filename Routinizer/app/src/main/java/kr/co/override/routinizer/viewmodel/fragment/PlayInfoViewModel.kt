@@ -7,6 +7,7 @@ import kr.co.override.routinizer.extension.SingleLiveEvent
 import kr.co.override.routinizer.network.RetrofitClient
 import kr.co.override.routinizer.network.model.response.DetailResponse
 import kr.co.override.routinizer.network.model.response.ErrorResponse
+import kr.co.override.routinizer.network.model.response.PostingResponse
 import kr.co.override.routinizer.view.fragment.PlayInfoFragmentArgs
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +27,29 @@ class PlayInfoViewModel: ViewModel() {
     val participationCount = MutableLiveData<Int>()
     val continuous = MutableLiveData<Int>()
 
+    val __id = MutableLiveData<String>()
+
     fun onClickNext() {
+        val inviteCall = RetrofitClient.postedInterface.invite(__id.value!!)
+
+        inviteCall.enqueue(object : Callback<PostingResponse> {
+            override fun onResponse(
+                call: Call<PostingResponse>,
+                response: Response<PostingResponse>
+            ) {
+                if (response.isSuccessful) {
+
+                } else {
+
+                }
+            }
+
+            override fun onFailure(call: Call<PostingResponse>, t: Throwable) {
+                
+            }
+
+        })
+
         onNextEvent.call()
     }
 

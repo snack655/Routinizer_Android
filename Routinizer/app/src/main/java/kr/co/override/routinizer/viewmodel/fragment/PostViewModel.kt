@@ -24,8 +24,12 @@ class PostViewModel: ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     val result = response.body()
+<<<<<<< Updated upstream
                     myPostsList.value = result?.challenges
 
+=======
+                    myPostsList.value = result?.participations
+>>>>>>> Stashed changes
                 } else {
                     val errorBody = RetrofitClient.instance.responseBodyConverter<ErrorResponse>(
                         ErrorResponse::class.java, ErrorResponse::class.java.annotations).convert(response.errorBody())

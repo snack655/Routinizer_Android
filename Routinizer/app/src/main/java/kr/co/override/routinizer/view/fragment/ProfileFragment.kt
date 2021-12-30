@@ -38,7 +38,7 @@ class ProfileFragment : Fragment() {
                 binding.tvSchool.text = school.value
                 binding.tvPlayingC.text = continuous.value.toString()
                 binding.tvPlaying.text = count.value.toString()
-                var reImage: String = "http://192.168.52.67:4000/uploads/${avatar.value}"
+                var reImage: String = "http://192.168.177.67:4000/uploads/${avatar.value}"
                 Glide.with(binding.root)
                     .load(reImage)
                     .error(R.drawable.default_user)
