@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemChallengeRecyclerBinding
+import kr.co.override.routinizer.network.model.response.challenge
 import kr.co.override.routinizer.network.model.response.participation
 
 class MyChallengeRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     RecyclerView.Adapter<MyChallengeRecyclerAdapter.ChallengeViewHolder>() {
 
-    var challengeList: List<participation> = ArrayList<participation>()
+    var challengeList: List<challenge> = ArrayList<challenge>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,8 +38,8 @@ class MyChallengeRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
 
     class ChallengeViewHolder(private val binding: ItemChallengeRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(participation: participation){
-                with(participation) {
+            fun bind(challenge: challenge){
+                with(challenge) {
                     binding.tvSentence.text = title
                     binding.btnCheck.text = "인증하기"
 

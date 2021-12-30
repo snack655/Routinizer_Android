@@ -45,7 +45,7 @@ class PostFragment : Fragment() {
                 myChallengeRecyclerAdapter.notifyDataSetChanged()
             })
             onNextEvent.observe(this@PostFragment, {
-                findNavController().navigate(kr.co.override.routinizer.R.id.action_main_post_to_postTagFragment)
+                findNavController().navigate(R.id.action_main_post_to_postTagFragment)
             })
         }
 

@@ -25,10 +25,10 @@ interface Posted {
     fun getGradeRanking() : Call<RankingResponse>
 
     @GET("participate/")
-    fun getMyInvitedPost() : Call<InvitedResponse>
+    fun getMyInvitedPost() : Call<PostedResponse>
 
     @GET("challenge/my")
-    fun getMyPost() : Call<InvitedResponse>
+    fun getMyPost() : Call<PostedResponse>
 
     @POST("challenge/")
     fun posting(@Body postingRequest: PostingRequest) : Call<PostingResponse>
