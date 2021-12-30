@@ -42,7 +42,7 @@ class PlayInfoFragment : Fragment() {
             __id.value = _id
 
             onNextEvent.observe(this@PlayInfoFragment, {
-                findNavController().navigate(R.id.action_postGoodFragment_to_main_post)
+                findNavController().navigate(R.id.action_playInfoFragment_to_main_home)
             })
             onBackEvent.observe(this@PlayInfoFragment, {
                 findNavController().navigate(R.id.action_playInfoFragment_to_main_home)

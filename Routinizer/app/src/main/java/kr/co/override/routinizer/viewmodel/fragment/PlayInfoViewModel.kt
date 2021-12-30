@@ -38,19 +38,23 @@ class PlayInfoViewModel: ViewModel() {
                 response: Response<PostingResponse>
             ) {
                 if (response.isSuccessful) {
-
+                    Log.d("Retrofit2", "onResponse: 성공")
+                    onNextEvent.call()
                 } else {
-
+                    val errorBody = RetrofitClient.instance.responseBodyConverter<ErrorResponse>(
+                        ErrorResponse::class.java, ErrorResponse::class.java.annotations).convert(response.errorBody())
+                    message.value = errorBody?.message
+                    Log.d("Retrofit2", "onResponse: ${response.code()}")
                 }
             }
 
             override fun onFailure(call: Call<PostingResponse>, t: Throwable) {
-                
+                Log.d("Retrofit2", "onFailure: $t")
             }
 
         })
 
-        onNextEvent.call()
+
     }
 
     fun onClickBack() {
