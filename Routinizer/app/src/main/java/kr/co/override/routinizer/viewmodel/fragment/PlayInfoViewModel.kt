@@ -7,6 +7,7 @@ import kr.co.override.routinizer.extension.SingleLiveEvent
 import kr.co.override.routinizer.network.RetrofitClient
 import kr.co.override.routinizer.network.model.response.DetailResponse
 import kr.co.override.routinizer.network.model.response.ErrorResponse
+import kr.co.override.routinizer.view.fragment.PlayInfoFragmentArgs
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

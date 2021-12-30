@@ -9,33 +9,47 @@
         android:id="@+id/main_home"
         android:name="kr.co.override.routinizer.view.fragment.HomeFragment"
         android:label="HomeFragment" >
+        <argument
+            android:name="postId"
+            app:argType="string"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_main_home_to_main_play"
             app:destination="@id/main_play"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_main_home_to_playInfoFragment"
+            app:destination="@id/playInfoFragment"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/main_play"
         android:name="kr.co.override.routinizer.view.fragment.PlayFragment"
         android:label="PlayFragment" >
+        <argument
+            android:name="postId"
+            app:argType="string"
+            android:defaultValue="0" />
         <action
-            android:id="@+id/action_main_play_to_main_home"
-            app:destination="@id/main_home"
-            app:popEnterAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_main_play_to_playInfoFragment"
+            app:destination="@id/playInfoFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/main_post"
         android:name="kr.co.override.routinizer.view.fragment.PostFragment"
         android:label="PostFragment" >
+        <argument
+            android:name="postId"
+            app:argType="string"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_main_post_to_postTagFragment"
             app:destination="@id/postTagFragment"
             app:enterAnim="@android:anim/fade_in" />
         <action
-            android:id="@+id/action_main_post_to_main_play"
-            app:destination="@id/main_play"
+            android:id="@+id/action_main_post_to_playInfoFragment"
+            app:destination="@id/playInfoFragment"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
@@ -112,9 +126,15 @@
         android:id="@+id/playInfoFragment"
         android:name="kr.co.override.routinizer.view.fragment.PlayInfoFragment"
         android:label="PlayInfoFragment" >
+        <argument
+            android:name="postId"
+            app:argType="string"
+            android:defaultValue="0" />
         <action
             android:id="@+id/action_playInfoFragment_to_main_play"
             app:destination="@id/main_play"
-            app:enterAnim="@android:anim/fade_in" />
+            app:enterAnim="@android:anim/fade_in"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.FragmentHomeBinding
 import kr.co.override.routinizer.view.adapter.HotRecyclerAdapter
@@ -57,6 +59,11 @@ class HomeFragment : Fragment() {
             exercisePostsList.observe(this@HomeFragment.viewLifecycleOwner, {
                 powerRecyclerAdapter.postList = it
                 powerRecyclerAdapter.notifyDataSetChanged()
+            })
+
+            HotRecyclerAdapter.onHotPostClick.observe(this@HomeFragment, {
+                val action = HomeFragmentDirections.actionMainHomeToPlayInfoFragment(it)
+                findNavController().navigate(action)
             })
         }
         return binding.root

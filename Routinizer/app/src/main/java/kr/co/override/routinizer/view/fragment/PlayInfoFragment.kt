@@ -9,11 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
-import kr.co.override.routinizer.databinding.FragmentPostGoodBinding
-import kr.co.override.routinizer.databinding.FragmentPostTagBinding
-import kr.co.override.routinizer.databinding.FragmentPostTitleBinding
 import android.R.string.no
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.databinding.FragmentPlayInfoBinding
 import kr.co.override.routinizer.viewmodel.fragment.*
@@ -22,6 +20,7 @@ import kr.co.override.routinizer.viewmodel.fragment.*
 class PlayInfoFragment : Fragment() {
     private lateinit var binding: FragmentPlayInfoBinding
     lateinit var PlayInfoViewModel: PlayInfoViewModel
+    val id: PlayInfoFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +36,9 @@ class PlayInfoFragment : Fragment() {
         performViewModel()
 
         with(PlayInfoViewModel) {
+            val _id = id.postId
+            getDetailPost(_id)
+
             onNextEvent.observe(this@PlayInfoFragment, {
                 findNavController().navigate(R.id.action_postGoodFragment_to_main_post)
             })

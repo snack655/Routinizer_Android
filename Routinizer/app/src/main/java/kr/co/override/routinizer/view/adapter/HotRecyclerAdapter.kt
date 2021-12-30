@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.override.routinizer.R
 import kr.co.override.routinizer.databinding.ItemPostRecyclerBinding
+import kr.co.override.routinizer.extension.SingleLiveEvent
 import kr.co.override.routinizer.network.model.response.challenge
+import kr.co.override.routinizer.viewmodel.item.PostItemViewModel
 
 class HotRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     RecyclerView.Adapter<HotRecyclerAdapter.HotViewHolder>() {
@@ -30,14 +32,18 @@ class HotRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
     }
 
     override fun onBindViewHolder(holder: HotViewHolder, position: Int) {
-        holder.bind(postList[position])
+        holder.bind(postList[position], lifecycleOwner)
     }
 
     override fun getItemCount(): Int = postList.size
 
     class HotViewHolder(private val binding: ItemPostRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(challenge: challenge){
+            fun bind(challenge: challenge, lifecycleOwner: LifecycleOwner){
+                val viewModel = PostItemViewModel(challenge)
+                binding.vm = viewModel
+                binding.lifecycleOwner = lifecycleOwner
+
                 with(challenge) {
                     binding.tvCount.text = participantCount.toString()
                     binding.tvTag.text = category
@@ -54,4 +60,8 @@ class HotRecyclerAdapter(val lifecycleOwner: LifecycleOwner) :
             }
 
         }
+
+    companion object {
+        val onHotPostClick = SingleLiveEvent<String>()
+    }
 }
