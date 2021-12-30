@@ -44,7 +44,7 @@ class PlayInfoFragment : Fragment() {
                 findNavController().navigate(R.id.action_postGoodFragment_to_main_post)
             })
             onBackEvent.observe(this@PlayInfoFragment, {
-                findNavController().navigate(R.id.action_playInfoFragment_to_main_play)
+                findNavController().navigate(R.id.action_playInfoFragment_to_main_home)
             })
             onSuccessEvent.observe(this@PlayInfoFragment, {
                 binding.tvInfoTag.text = category.value

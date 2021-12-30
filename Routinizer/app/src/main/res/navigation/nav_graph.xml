@@ -131,10 +131,7 @@
             app:argType="string"
             android:defaultValue="0" />
         <action
-            android:id="@+id/action_playInfoFragment_to_main_play"
-            app:destination="@id/main_play"
-            app:enterAnim="@android:anim/fade_in"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_playInfoFragment_to_main_home"
+            app:destination="@id/main_home" />
     </fragment>
 </navigation>
