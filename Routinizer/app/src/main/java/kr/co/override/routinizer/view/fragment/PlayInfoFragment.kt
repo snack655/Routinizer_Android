@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import kr.co.override.routinizer.R
 import android.R.string.no
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -63,6 +64,10 @@ class PlayInfoFragment : Fragment() {
                     .error(R.drawable.noimg)
                     .centerCrop()
                     .into(binding.ivInfoImg)
+            })
+
+            message.observe(this@PlayInfoFragment.viewLifecycleOwner, {
+                Toast.makeText(context, "${message.value}", Toast.LENGTH_SHORT).show()
             })
         }
         return binding.root
